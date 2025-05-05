@@ -56,7 +56,7 @@ public class ControladorCliente {
     public void AgregarCliente(JTextField nombres, JTextField appaterno, JTextField appmaterno) {
         Configuracion.CConexion objetoConexion = new Configuracion.CConexion();
         Modelo.ModeloCliente objetoCliente = new Modelo.ModeloCliente();
-        String consulta = "insert into cliente (nombres,appaterno,apmmaterno)values (?,?,?)";
+        String consulta = "insert into cliente (nombres,appaterno,apmaterno)values (?,?,?)";
         try {
             objetoCliente.setNombres(nombres.getText());
             objetoCliente.setApPaterno(appaterno.getText());

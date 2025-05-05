@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Vista;
-
+import Controlador.ControladorCliente;
 /**
  *
  * @author Juan
@@ -117,6 +117,11 @@ public class FromClientes extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tbcliente);
 
         btnguardarcliente.setText("Guardar");
+        btnguardarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarclienteActionPerformed(evt);
+            }
+        });
 
         btnmodificarcliente.setText("Modificar");
 
@@ -160,6 +165,13 @@ public class FromClientes extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnguardarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarclienteActionPerformed
+        Controlador.ControladorCliente objetoCliente = new ControladorCliente();
+        objetoCliente.AgregarCliente(txtnombrecliente,txtappaterno,txtapmaterno);
+        objetoCliente.MostrarClientes(tbcliente);
+        
+    }//GEN-LAST:event_btnguardarclienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

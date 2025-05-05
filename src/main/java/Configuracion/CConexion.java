@@ -22,6 +22,7 @@ public class CConexion {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conectar = DriverManager.getConnection(cadena, usuario, contraseña);
+            JOptionPane.showMessageDialog(null, "La conexión fue establecida.");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se conectó a la BD: " + e.toString());
         }
