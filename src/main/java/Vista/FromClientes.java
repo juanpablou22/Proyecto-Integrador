@@ -17,6 +17,7 @@ public class FromClientes extends javax.swing.JInternalFrame {
         initComponents();
         Controlador.ControladorCliente objetoCliente = new Controlador.ControladorCliente();
         objetoCliente.MostrarClientes(tbcliente);
+        txtidcliente.setEditable(false);
     }
 
     /**
@@ -38,6 +39,7 @@ public class FromClientes extends javax.swing.JInternalFrame {
         txtappaterno = new javax.swing.JTextField();
         txtapmaterno = new javax.swing.JTextField();
         btnlimpiarcampos = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbcliente = new javax.swing.JTable();
         btnguardarcliente = new javax.swing.JButton();
@@ -59,30 +61,42 @@ public class FromClientes extends javax.swing.JInternalFrame {
         jLabel4.setText("Ap.Materno");
 
         btnlimpiarcampos.setText("Limpiar campos");
+        btnlimpiarcampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlimpiarcamposActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Seleccionar para Modificar o Eliminar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtidcliente, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(txtnombrecliente, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(txtappaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnlimpiarcampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtapmaterno))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtidcliente, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtnombrecliente, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtappaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtapmaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnlimpiarcampos, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -98,9 +112,10 @@ public class FromClientes extends javax.swing.JInternalFrame {
                     .addComponent(txtnombrecliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtappaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtapmaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnlimpiarcampos)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jLabel5))
         );
 
         tbcliente.setModel(new javax.swing.table.DefaultTableModel(
@@ -114,6 +129,11 @@ public class FromClientes extends javax.swing.JInternalFrame {
 
             }
         ));
+        tbcliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbclienteMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbcliente);
 
         btnguardarcliente.setText("Guardar");
@@ -124,8 +144,18 @@ public class FromClientes extends javax.swing.JInternalFrame {
         });
 
         btnmodificarcliente.setText("Modificar");
+        btnmodificarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodificarclienteActionPerformed(evt);
+            }
+        });
 
         btneliminarcliente.setText("Eliminar");
+        btneliminarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarclienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -170,8 +200,33 @@ public class FromClientes extends javax.swing.JInternalFrame {
         Controlador.ControladorCliente objetoCliente = new ControladorCliente();
         objetoCliente.AgregarCliente(txtnombrecliente,txtappaterno,txtapmaterno);
         objetoCliente.MostrarClientes(tbcliente);
+        objetoCliente.limpiarCammposClientes(txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
         
     }//GEN-LAST:event_btnguardarclienteActionPerformed
+
+    private void tbclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbclienteMouseClicked
+       Controlador.ControladorCliente objetoCliente = new ControladorCliente();
+       objetoCliente.Seleccionar(tbcliente, txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
+    }//GEN-LAST:event_tbclienteMouseClicked
+
+    private void btnmodificarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarclienteActionPerformed
+        Controlador.ControladorCliente objetoCliente = new ControladorCliente();
+        objetoCliente.MoodificarCliente(txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
+        objetoCliente.MostrarClientes(tbcliente);
+        objetoCliente.limpiarCammposClientes(txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
+    }//GEN-LAST:event_btnmodificarclienteActionPerformed
+
+    private void btneliminarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarclienteActionPerformed
+       Controlador.ControladorCliente objetoCliente = new ControladorCliente();
+        objetoCliente.EliminarClientes(txtidcliente);
+        objetoCliente.MostrarClientes(tbcliente);
+        objetoCliente.limpiarCammposClientes(txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
+    }//GEN-LAST:event_btneliminarclienteActionPerformed
+
+    private void btnlimpiarcamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarcamposActionPerformed
+      Controlador.ControladorCliente objetoCliente = new ControladorCliente();
+      objetoCliente.limpiarCammposClientes(txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
+    }//GEN-LAST:event_btnlimpiarcamposActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -183,6 +238,7 @@ public class FromClientes extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbcliente;
