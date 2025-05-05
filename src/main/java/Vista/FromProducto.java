@@ -15,6 +15,8 @@ public class FromProducto extends javax.swing.JInternalFrame {
      */
     public FromProducto() {
         initComponents();
+        Controlador.ControladorProducto objetoProducto = new Controlador.ControladorProducto();
+        objetoProducto.MostrarProductos(tbproductos);
     }
 
     /**
