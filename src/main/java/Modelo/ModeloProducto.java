@@ -10,17 +10,17 @@ package Modelo;
  */
 public class ModeloProducto {
 
-    int idProducto;
+    int idproducto;
     String nombreProducto;
     Double precioProducto;
     int stockProducto;
 
     public int getIdProducto() {
-        return idProducto;
+        return idproducto;
     }
 
     public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+        this.idproducto = idProducto;
     }
 
     public String getNombreProducto() {

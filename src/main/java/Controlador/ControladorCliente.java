@@ -119,7 +119,7 @@ public class ControladorCliente {
         }
     }
 
-    public void limpiarCammposClientes(JTextField id, JTextField nombres, JTextField appaterno, JTextField apmaterno) {
+    public void limpiarCamposClientes(JTextField id, JTextField nombres, JTextField appaterno, JTextField apmaterno) {
         id.setText("");
         nombres.setText("");
         appaterno.setText("");

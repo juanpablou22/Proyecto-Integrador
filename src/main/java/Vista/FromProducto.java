@@ -17,6 +17,7 @@ public class FromProducto extends javax.swing.JInternalFrame {
         initComponents();
         Controlador.ControladorProducto objetoProducto = new Controlador.ControladorProducto();
         objetoProducto.MostrarProductos(tbproductos);
+        txtidproducto.setEnabled(false);
     }
 
     /**
@@ -60,6 +61,11 @@ public class FromProducto extends javax.swing.JInternalFrame {
         jLabel4.setText("Stock:");
 
         btnlimpiarcampos.setText("Limpiar campos");
+        btnlimpiarcampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlimpiarcamposActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -115,15 +121,35 @@ public class FromProducto extends javax.swing.JInternalFrame {
 
             }
         ));
+        tbproductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbproductosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbproductos);
 
         jLabel5.setText("Click para Seleccionar");
 
         btnguardar.setText("Guardar");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
 
         btnmodificar.setText("Modificar");
+        btnmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodificarActionPerformed(evt);
+            }
+        });
 
         btneliminar.setText("Eliminar");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -164,6 +190,37 @@ public class FromProducto extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        Controlador.ControladorProducto objetoProducto = new Controlador.ControladorProducto();
+        objetoProducto.AgregarProducto(txtnombreproducto, txtprecioproducto, txtstockproducto);
+        objetoProducto.MostrarProductos(tbproductos);
+        objetoProducto.limpiarCamposProductos(txtidproducto, txtnombreproducto, txtprecioproducto, txtstockproducto);
+    }//GEN-LAST:event_btnguardarActionPerformed
+
+    private void tbproductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbproductosMouseClicked
+        Controlador.ControladorProducto objetoProducto = new Controlador.ControladorProducto();
+        objetoProducto.Seleccionar(tbproductos, txtidproducto, txtnombreproducto, txtprecioproducto, txtstockproducto);
+    }//GEN-LAST:event_tbproductosMouseClicked
+
+    private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
+        Controlador.ControladorProducto objetoProducto = new Controlador.ControladorProducto();
+        objetoProducto.ModificarProducto(txtidproducto, txtnombreproducto, txtprecioproducto, txtstockproducto);
+        objetoProducto.MostrarProductos(tbproductos);
+        objetoProducto.limpiarCamposProductos(txtidproducto, txtnombreproducto, txtprecioproducto, txtstockproducto);
+    }//GEN-LAST:event_btnmodificarActionPerformed
+
+    private void btnlimpiarcamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarcamposActionPerformed
+        Controlador.ControladorProducto objetoProducto = new Controlador.ControladorProducto();
+        objetoProducto.limpiarCamposProductos(txtidproducto, txtnombreproducto, txtprecioproducto, txtstockproducto);
+    }//GEN-LAST:event_btnlimpiarcamposActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+        Controlador.ControladorProducto objetoProducto = new Controlador.ControladorProducto();
+        objetoProducto.EliminarProductos(txtidproducto);
+        objetoProducto.MostrarProductos(tbproductos);
+        objetoProducto.limpiarCamposProductos(txtidproducto, txtnombreproducto, txtprecioproducto, txtstockproducto);
+    }//GEN-LAST:event_btneliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

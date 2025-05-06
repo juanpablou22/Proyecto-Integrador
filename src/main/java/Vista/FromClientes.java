@@ -200,7 +200,7 @@ public class FromClientes extends javax.swing.JInternalFrame {
         Controlador.ControladorCliente objetoCliente = new ControladorCliente();
         objetoCliente.AgregarCliente(txtnombrecliente,txtappaterno,txtapmaterno);
         objetoCliente.MostrarClientes(tbcliente);
-        objetoCliente.limpiarCammposClientes(txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
+        objetoCliente.limpiarCamposClientes(txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
         
     }//GEN-LAST:event_btnguardarclienteActionPerformed
 
@@ -213,19 +213,19 @@ public class FromClientes extends javax.swing.JInternalFrame {
         Controlador.ControladorCliente objetoCliente = new ControladorCliente();
         objetoCliente.MoodificarCliente(txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
         objetoCliente.MostrarClientes(tbcliente);
-        objetoCliente.limpiarCammposClientes(txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
+        objetoCliente.limpiarCamposClientes(txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
     }//GEN-LAST:event_btnmodificarclienteActionPerformed
 
     private void btneliminarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarclienteActionPerformed
        Controlador.ControladorCliente objetoCliente = new ControladorCliente();
         objetoCliente.EliminarClientes(txtidcliente);
         objetoCliente.MostrarClientes(tbcliente);
-        objetoCliente.limpiarCammposClientes(txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
+        objetoCliente.limpiarCamposClientes(txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
     }//GEN-LAST:event_btneliminarclienteActionPerformed
 
     private void btnlimpiarcamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarcamposActionPerformed
       Controlador.ControladorCliente objetoCliente = new ControladorCliente();
-      objetoCliente.limpiarCammposClientes(txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
+      objetoCliente.limpiarCamposClientes(txtidcliente, txtnombrecliente, txtappaterno, txtapmaterno);
     }//GEN-LAST:event_btnlimpiarcamposActionPerformed
 
 
