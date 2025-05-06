@@ -15,6 +15,16 @@ public class FromVentas extends javax.swing.JInternalFrame {
      */
     public FromVentas() {
         initComponents();
+        txtSidproducto.setEditable(false);
+        txtSnombreproducto.setEditable(false);
+        txtSprecio.setEditable(false);
+        txtSstock.setEditable(false);
+        txtSprecioVenta.setEditable(false);
+        
+        txtSidcliente.setEditable(false);
+        txtScliente.setEditable(false);
+        txtSappaterno.setEditable(false);
+        txtSapmaterno.setEditable(false);
     }
 
     /**
@@ -86,6 +96,12 @@ public class FromVentas extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Buscador");
 
+        txtbuscarcliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtbuscarclienteKeyReleased(evt);
+            }
+        });
+
         tbcliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -97,6 +113,11 @@ public class FromVentas extends javax.swing.JInternalFrame {
 
             }
         ));
+        tbcliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbclienteMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbcliente);
 
         jLabel2.setText("Click para seleccionar");
@@ -134,6 +155,12 @@ public class FromVentas extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Buscador");
 
+        txtbuscarproductos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtbuscarproductosKeyReleased(evt);
+            }
+        });
+
         tbproductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -145,6 +172,11 @@ public class FromVentas extends javax.swing.JInternalFrame {
 
             }
         ));
+        tbproductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbproductosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tbproductos);
 
         jLabel4.setText("Click para seleccionar");
@@ -189,6 +221,14 @@ public class FromVentas extends javax.swing.JInternalFrame {
         jLabel7.setText("Ap.Paterno:");
 
         jLabel8.setText("Ap.Materno:");
+
+        txtSidcliente.setDisabledTextColor(new java.awt.Color(255, 51, 0));
+
+        txtScliente.setDisabledTextColor(new java.awt.Color(255, 51, 0));
+
+        txtSappaterno.setDisabledTextColor(new java.awt.Color(255, 51, 0));
+
+        txtSapmaterno.setDisabledTextColor(new java.awt.Color(255, 51, 0));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -247,6 +287,14 @@ public class FromVentas extends javax.swing.JInternalFrame {
 
         jLabel12.setText("Stock:");
 
+        txtSidproducto.setDisabledTextColor(new java.awt.Color(255, 51, 0));
+
+        txtSnombreproducto.setDisabledTextColor(new java.awt.Color(255, 51, 0));
+
+        txtSprecio.setDisabledTextColor(new java.awt.Color(255, 51, 0));
+
+        txtSstock.setDisabledTextColor(new java.awt.Color(255, 51, 0));
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -293,6 +341,8 @@ public class FromVentas extends javax.swing.JInternalFrame {
         jLabel13.setText("Precio de Venta:");
 
         jLabel14.setText("Cantidad de Venta:");
+
+        txtSprecioVenta.setDisabledTextColor(new java.awt.Color(255, 0, 51));
 
         btnhabilitar.setText("Habilitar");
 
@@ -489,6 +539,27 @@ public class FromVentas extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtbuscarproductosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarproductosKeyReleased
+     Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+     objetoVenta.BuscarProducto(txtbuscarproductos, tbproductos);
+    }//GEN-LAST:event_txtbuscarproductosKeyReleased
+
+    private void tbproductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbproductosMouseClicked
+     Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+     objetoVenta.SeleccionarProoductosVenta(tbproductos,txtSidproducto, txtSnombreproducto, txtSprecio, txtSstock, txtSprecioVenta);
+    }//GEN-LAST:event_tbproductosMouseClicked
+
+    private void txtbuscarclienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarclienteKeyReleased
+      Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+      objetoVenta.BuscarCliente(txtbuscarcliente, tbcliente);
+
+    }//GEN-LAST:event_txtbuscarclienteKeyReleased
+
+    private void tbclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbclienteMouseClicked
+      Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+      objetoVenta.SeleccionarClienteVenta(tbcliente, txtSidcliente, txtScliente, txtSappaterno, txtSapmaterno);
+    }//GEN-LAST:event_tbclienteMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
