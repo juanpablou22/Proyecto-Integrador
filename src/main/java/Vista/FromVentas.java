@@ -349,6 +349,11 @@ public class FromVentas extends javax.swing.JInternalFrame {
         btndeshabilitar.setText("Deshailitar");
 
         btnagregarproducto.setText("Agregar Producto");
+        btnagregarproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagregarproductoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -424,13 +429,15 @@ public class FromVentas extends javax.swing.JInternalFrame {
         jLabel17.setText("Seleccione Para Eliminar");
 
         btneliminar.setText("Eliminar");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
 
         tbresumenventa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "IdProducto", "N.Producto", "PrecioProducto", "CantidadProducto", "SubTotal"
@@ -483,6 +490,11 @@ public class FromVentas extends javax.swing.JInternalFrame {
         lbltotal.setText("-----");
 
         btncobrar.setText("Cobrar");
+        btncobrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncobrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -560,6 +572,24 @@ public class FromVentas extends javax.swing.JInternalFrame {
       Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
       objetoVenta.SeleccionarClienteVenta(tbcliente, txtSidcliente, txtScliente, txtSappaterno, txtSapmaterno);
     }//GEN-LAST:event_tbclienteMouseClicked
+
+    private void btnagregarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarproductoActionPerformed
+     Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+     objetoVenta.pasarProductosVenta(tbresumenventa, txtSidproducto, txtSnombreproducto, txtSprecio, txtcantidadventa, txtSstock);
+     objetoVenta.calcularTotalPagar(tbresumenventa, lbliva, lbltotal);
+    }//GEN-LAST:event_btnagregarproductoActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+    Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+    objetoVenta.eliminarProductosSeleccionadosResumenVenta(tbresumenventa);
+    objetoVenta.calcularTotalPagar(tbresumenventa, lbliva, lbltotal);
+    }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void btncobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncobrarActionPerformed
+    Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+    objetoVenta.crearFactura(txtSidcliente);
+    objetoVenta.realizarVenta(tbresumenventa);
+    }//GEN-LAST:event_btncobrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
