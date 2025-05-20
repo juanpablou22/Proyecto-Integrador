@@ -33,10 +33,10 @@ public class CConexion {
         try {
             if (conectar != null && !conectar.isClosed()) {
                 conectar.close();
-               //JOptionPane.showMessageDialog(null, "La conexión fue cerrada.");
+              // JOptionPane.showMessageDialog(null, "La conexión fue cerrada.");
             }
         } catch (Exception e) {
-           // JOptionPane.showMessageDialog(null, "No se cerró la conexión: " + e.toString());
+           JOptionPane.showMessageDialog(null, "No se cerró la conexión: " + e.toString());
         }
     }
 }

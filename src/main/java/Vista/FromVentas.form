@@ -606,6 +606,9 @@
                   <Color blue="33" green="0" red="ff" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSprecioVentaActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtcantidadventa">
             </Component>
@@ -613,11 +616,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Habilitar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnhabilitarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btndeshabilitar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Deshailitar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndeshabilitarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnagregarproducto">
               <Properties>
@@ -653,7 +662,7 @@
                       <Group type="102" attributes="0">
                           <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblultimafactura" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -670,7 +679,7 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblultimafactura" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btneliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -687,7 +696,7 @@
             <Property name="text" type="java.lang.String" value="Ultima Factura Creada:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel16">
+        <Component class="javax.swing.JLabel" name="lblultimafactura">
           <Properties>
             <Property name="text" type="java.lang.String" value="----"/>
           </Properties>

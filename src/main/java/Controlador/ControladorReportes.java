@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import com.toedter.calendar.JDateChooser;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.DecimalFormat;
@@ -100,6 +101,10 @@ public class ControladorReportes {
         } finally {
             objetoConexion.cerrarConexion();
         }
+    }
+
+    public void mostrarTotalVentaPorFecha(JDateChooser txtdesde, JDateChooser txthasta, JTable tbtotal, JLabel lbltotal) {
+       
     }
 
 }

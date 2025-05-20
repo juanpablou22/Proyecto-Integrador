@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Controlador.ControladorVenta;
+
 /**
  *
  * @author Juan
@@ -19,12 +21,15 @@ public class FromVentas extends javax.swing.JInternalFrame {
         txtSnombreproducto.setEditable(false);
         txtSprecio.setEditable(false);
         txtSstock.setEditable(false);
-        txtSprecioVenta.setEditable(false);
+        //txtSprecioVenta.setEditable(false);
         
         txtSidcliente.setEditable(false);
         txtScliente.setEditable(false);
         txtSappaterno.setEditable(false);
         txtSapmaterno.setEditable(false);
+        
+       Controlador.ControladorVenta objetoVenta = new ControladorVenta();
+       objetoVenta.MostrarUltimaFactura(lblultimafactura);
     }
 
     /**
@@ -77,7 +82,7 @@ public class FromVentas extends javax.swing.JInternalFrame {
         btnagregarproducto = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        lblultimafactura = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         btneliminar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -343,10 +348,25 @@ public class FromVentas extends javax.swing.JInternalFrame {
         jLabel14.setText("Cantidad de Venta:");
 
         txtSprecioVenta.setDisabledTextColor(new java.awt.Color(255, 0, 51));
+        txtSprecioVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSprecioVentaActionPerformed(evt);
+            }
+        });
 
         btnhabilitar.setText("Habilitar");
+        btnhabilitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnhabilitarActionPerformed(evt);
+            }
+        });
 
         btndeshabilitar.setText("Deshailitar");
+        btndeshabilitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeshabilitarActionPerformed(evt);
+            }
+        });
 
         btnagregarproducto.setText("Agregar Producto");
         btnagregarproducto.addActionListener(new java.awt.event.ActionListener() {
@@ -424,7 +444,7 @@ public class FromVentas extends javax.swing.JInternalFrame {
 
         jLabel15.setText("Ultima Factura Creada:");
 
-        jLabel16.setText("----");
+        lblultimafactura.setText("----");
 
         jLabel17.setText("Seleccione Para Eliminar");
 
@@ -458,7 +478,7 @@ public class FromVentas extends javax.swing.JInternalFrame {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel16)
+                        .addComponent(lblultimafactura)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel17)
                         .addGap(18, 18, 18)
@@ -471,7 +491,7 @@ public class FromVentas extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jLabel16)
+                    .addComponent(lblultimafactura)
                     .addComponent(btneliminar)
                     .addComponent(jLabel17))
                 .addGap(18, 18, 18)
@@ -575,7 +595,7 @@ public class FromVentas extends javax.swing.JInternalFrame {
 
     private void btnagregarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarproductoActionPerformed
      Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
-     objetoVenta.pasarProductosVenta(tbresumenventa, txtSidproducto, txtSnombreproducto, txtSprecio, txtcantidadventa, txtSstock);
+     objetoVenta.pasarProductosVenta(tbresumenventa, txtSidproducto, txtSnombreproducto, txtSprecioVenta, txtcantidadventa, txtSstock);
      objetoVenta.calcularTotalPagar(tbresumenventa, lbliva, lbltotal);
     }//GEN-LAST:event_btnagregarproductoActionPerformed
 
@@ -589,7 +609,21 @@ public class FromVentas extends javax.swing.JInternalFrame {
     Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
     objetoVenta.crearFactura(txtSidcliente);
     objetoVenta.realizarVenta(tbresumenventa);
+    objetoVenta.limpiarCamposLuegoVenta(txtbuscarcliente, tbcliente, txtbuscarproductos, tbproductos, txtSidcliente, txtScliente, txtSappaterno, txtSapmaterno, txtSidproducto, txtSnombreproducto,txtSprecio, txtSstock,txtSprecioVenta, txtcantidadventa, tbresumenventa, lbliva, lbltotal, tbproductos);
+    objetoVenta.MostrarUltimaFactura(lblultimafactura);
     }//GEN-LAST:event_btncobrarActionPerformed
+
+    private void btnhabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhabilitarActionPerformed
+    txtSprecioVenta.setEnabled(true);
+    }//GEN-LAST:event_btnhabilitarActionPerformed
+
+    private void btndeshabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeshabilitarActionPerformed
+    txtSprecioVenta.setEnabled(false);
+    }//GEN-LAST:event_btndeshabilitarActionPerformed
+
+    private void txtSprecioVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSprecioVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSprecioVentaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -605,7 +639,6 @@ public class FromVentas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
@@ -629,6 +662,7 @@ public class FromVentas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lbliva;
     private javax.swing.JLabel lbltotal;
+    private javax.swing.JLabel lblultimafactura;
     private javax.swing.JTable tbcliente;
     private javax.swing.JTable tbproductos;
     private javax.swing.JTable tbresumenventa;

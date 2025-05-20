@@ -15,6 +15,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -28,6 +29,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         dpanelformularios = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -40,26 +44,66 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Mi Punto de Inventario y Ventas");
+        dpanelformularios.setBackground(new java.awt.Color(153, 153, 153));
+
+        jLabel1.setFont(new java.awt.Font("Unispace", 3, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 153, 102));
+        jLabel1.setText("Punto de Inventario y Ventas");
+
+        jLabel2.setFont(new java.awt.Font("Unispace", 3, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 102));
+        jLabel2.setText("Tecnologia y Seguridad");
+
+        jLabel3.setFont(new java.awt.Font("Unispace", 3, 70)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 153, 102));
+        jLabel3.setText("MH");
+
+        jLabel4.setFont(new java.awt.Font("Unispace", 3, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 153, 102));
+        jLabel4.setText("Distribuidor");
 
         dpanelformularios.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpanelformularios.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpanelformularios.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpanelformularios.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout dpanelformulariosLayout = new javax.swing.GroupLayout(dpanelformularios);
         dpanelformularios.setLayout(dpanelformulariosLayout);
         dpanelformulariosLayout.setHorizontalGroup(
             dpanelformulariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dpanelformulariosLayout.createSequentialGroup()
-                .addGap(252, 252, 252)
-                .addComponent(jLabel1)
-                .addContainerGap(578, Short.MAX_VALUE))
+                .addGroup(dpanelformulariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dpanelformulariosLayout.createSequentialGroup()
+                        .addGap(764, 764, 764)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dpanelformulariosLayout.createSequentialGroup()
+                        .addGap(490, 490, 490)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dpanelformulariosLayout.createSequentialGroup()
+                        .addGap(408, 408, 408)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 824, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(874, Short.MAX_VALUE))
+            .addGroup(dpanelformulariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(dpanelformulariosLayout.createSequentialGroup()
+                    .addGap(641, 641, 641)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(1109, Short.MAX_VALUE)))
         );
         dpanelformulariosLayout.setVerticalGroup(
             dpanelformulariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dpanelformulariosLayout.createSequentialGroup()
-                .addGap(145, 145, 145)
-                .addComponent(jLabel1)
-                .addContainerGap(617, Short.MAX_VALUE))
+                .addGap(133, 133, 133)
+                .addComponent(jLabel3)
+                .addGap(103, 103, 103)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(218, Short.MAX_VALUE))
+            .addGroup(dpanelformulariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(dpanelformulariosLayout.createSequentialGroup()
+                    .addGap(233, 233, 233)
+                    .addComponent(jLabel4)
+                    .addContainerGap(509, Short.MAX_VALUE)))
         );
 
         jMenu1.setText("Vender");
@@ -143,9 +187,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(dpanelformularios)
-                .addContainerGap())
+            .addComponent(dpanelformularios)
         );
 
         pack();
@@ -236,6 +278,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dpanelformularios;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
